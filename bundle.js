@@ -26668,8 +26668,8 @@ function GridReducer() {
 
   switch (action.type) {
     case 'CLICK_SQUARE':
-      console.log('SQUARE_CLICKED event received by reducer with index {{action.index}}');
-      state.squares.setIn([action.index, 'color'], '#ffffff');
+      console.log('SQUARE_CLICKED event received by reducer with index ' + action.index);
+      return state.setIn(['squares', action.index, 'color'], '#ffffff');
     default:
       return state;
   }
@@ -26737,7 +26737,7 @@ var App = function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    squares: state.squares
+    squares: state.get('squares')
   };
 };
 
@@ -26803,7 +26803,7 @@ var Grid = function (_Component) {
         'div',
         { className: 'grid' },
         squares.map(function (square) {
-          return _react2.default.createElement(_Square2.default, { key: square.id,
+          return _react2.default.createElement(_Square2.default, { key: square.toJS().id,
             square: square,
             handleSquare: handleSquare });
         })
@@ -26843,43 +26843,48 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Grid = function (_Component) {
-  _inherits(Grid, _Component);
+var Square = function (_Component) {
+  _inherits(Square, _Component);
 
-  function Grid() {
-    _classCallCheck(this, Grid);
+  function Square() {
+    _classCallCheck(this, Square);
 
-    return _possibleConstructorReturn(this, (Grid.__proto__ || Object.getPrototypeOf(Grid)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Square.__proto__ || Object.getPrototypeOf(Square)).apply(this, arguments));
   }
 
-  _createClass(Grid, [{
+  _createClass(Square, [{
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate(nextProps) {
+      return !Object.is(this.props.square, nextProps.square);
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
           square = _props.square,
           handleSquare = _props.handleSquare;
 
-      console.log('Square #' + square.id + ' is rendering');
+      console.log('Square #' + square.toJS().id + ' is rendering');
       return _react2.default.createElement(
         'section',
         { className: 'square',
-          style: { backgroundColor: square.color },
+          style: { backgroundColor: square.toJS().color },
           onClick: function onClick() {
-            return handleSquare(square.id);
+            return handleSquare(square.toJS().id);
           } },
         _react2.default.createElement(
           'div',
           { className: 'square-data' },
-          square.id
+          square.toJS().id
         )
       );
     }
   }]);
 
-  return Grid;
+  return Square;
 }(_react.Component);
 
-exports.default = Grid;
+exports.default = Square;
 
 /***/ }),
 /* 77 */

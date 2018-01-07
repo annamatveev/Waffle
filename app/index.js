@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import React from 'react';
+import { fromJS } from 'immutable';
 
 import configureStore from './Store/configureStore';
 import App from './containers/App/App';
@@ -40,7 +41,7 @@ const squares = [
   },
 ];
 
-const store = configureStore({ squares });
+const store = configureStore(fromJS({ squares }));
 
 ReactDOM.render(
   <Provider store={store}>

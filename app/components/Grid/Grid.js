@@ -8,7 +8,7 @@ class Grid extends Component {
     console.log('Grid is rendering');
     return (
       <div className="grid">
-        { squares.map(square => <Square key={square.id}
+        { squares.map(square => <Square key={square.toJS().id}
                                         square={square}
                                         handleSquare={handleSquare} />) }
       </div>

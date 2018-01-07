@@ -1,15 +1,16 @@
 .square {
     height: 100px;
     width: 100px;
-    border: black 1px solid;
     margin: 2px;
     display:flex;
     justify-content:center;
     align-items:center;
+    border: 10px solid #EECC50;
+    border-radius: .8em;
 }
 
 .square-data {
     text-align: center;
-    font-size: 50px;
-    -webkit-text-stroke: 1px white;
+    font-size: 30px;
+    color: #DC8526;
 }

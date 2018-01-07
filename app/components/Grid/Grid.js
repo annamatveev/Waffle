@@ -4,11 +4,13 @@ import './Grid.css';
 
 class Grid extends Component {
   render() {
-    const { squares } = this.props;
+    const { squares, handleSquare } = this.props;
     console.log('Grid is rendering');
     return (
       <div className="grid">
-        { squares.map(square => <Square key={square.id} square={square} />) }
+        { squares.map(square => <Square key={square.id}
+                                        square={square}
+                                        handleSquare={handleSquare} />) }
       </div>
     );
   }

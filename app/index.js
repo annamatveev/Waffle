@@ -7,20 +7,36 @@ import App from './containers/App/App';
 
 const squares = [
   {
-    id: '1',
-    color: '#ff0000',
+    id: 0,
+    color: '#EAA732',
   },
   {
-    id: '2',
-    color: '#000000',
+    id: 1,
+    color: '#EAA732',
   },
   {
-    id: '3',
-    color: '#ff0000',
+    id: 2,
+    color: '#EAA732',
   },
   {
-    id: '4',
-    color: '#000000',
+    id: 3,
+    color: '#EAA732',
+  },
+  {
+    id: 4,
+    color: '#EAA732',
+  },
+  {
+    id: 5,
+    color: '#EAA732',
+  },
+  {
+    id: 6,
+    color: '#EAA732',
+  },
+  {
+    id: 7,
+    color: '#EAA732',
   },
 ];
 

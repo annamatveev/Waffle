@@ -1,7 +1,15 @@
-export default function clickOnSquare(index) {
-  console.log('CLICK_SQUARE event fired by action creator with index ' + index);
+export function clickOnAnnaSquare(index) {
+  console.log('Annas waffle action creator with index ' + index);
   return {
-    index: index,
-    type: 'CLICK_SQUARE',
+    index,
+    type: 'ANNA_CLICK_SQUARE',
+  };
+}
+
+export function clickOnDanielSquare(index) {
+  console.log('Daniels waffle action creator with index ' + index);
+  return {
+    index,
+    type: 'DANIEL_CLICK_SQUARE',
   };
 }

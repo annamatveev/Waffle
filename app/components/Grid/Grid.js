@@ -4,8 +4,8 @@ import './Grid.css';
 
 class Grid extends Component {
   render() {
-    const { squares, handleSquare } = this.props;
-    console.log('Grid is rendering');
+    const { owner, squares, handleSquare } = this.props;
+    console.log('Grid is rendering: ' + owner);
     return (
       <div className="grid">
         { squares.map(square => <Square key={square.toJS().id}

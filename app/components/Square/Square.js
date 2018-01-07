@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './Square.css';
 
 class Square extends Component {
-  shouldComponentUpdate(nextProps) {
-    return !Object.is(this.props.square, nextProps.square);
-  }
+  // shouldComponentUpdate(nextProps) {
+  //   return !Object.is(this.props.square, nextProps.square);
+  // }
   render() {
     const { square, handleSquare } = this.props;
     console.log('Square #' + square.toJS().id + ' is rendering');

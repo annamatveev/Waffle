@@ -2416,17 +2416,29 @@ var _App2 = _interopRequireDefault(_App);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var squares = [{
-  id: '1',
-  color: '#ff0000'
+  id: 0,
+  color: '#EAA732'
 }, {
-  id: '2',
-  color: '#000000'
+  id: 1,
+  color: '#EAA732'
 }, {
-  id: '3',
-  color: '#ff0000'
+  id: 2,
+  color: '#EAA732'
 }, {
-  id: '4',
-  color: '#000000'
+  id: 3,
+  color: '#EAA732'
+}, {
+  id: 4,
+  color: '#EAA732'
+}, {
+  id: 5,
+  color: '#EAA732'
+}, {
+  id: 6,
+  color: '#EAA732'
+}, {
+  id: 7,
+  color: '#EAA732'
 }];
 
 var store = (0, _configureStore2.default)({ squares: squares });
@@ -21645,14 +21657,14 @@ exports.default = configureStore;
 
 var _redux = __webpack_require__(21);
 
-var _GridReducer = __webpack_require__(72);
+var _Reducer = __webpack_require__(72);
 
-var _GridReducer2 = _interopRequireDefault(_GridReducer);
+var _Reducer2 = _interopRequireDefault(_Reducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function configureStore(initialState) {
-  return (0, _redux.createStore)(_GridReducer2.default, initialState);
+  return (0, _redux.createStore)(_Reducer2.default, initialState);
 }
 
 /***/ }),
@@ -21674,15 +21686,19 @@ function GridReducer() {
   var action = arguments[1];
 
   switch (action.type) {
-    case 'SQUARE_CLICKED':
-      return state.map(function (item, index) {
-        if (index !== action.index) {
-          return item;
-        }
-        return _extends({}, item, {
-          color: '#ffffff'
-        });
-      });
+    case 'CLICK_SQUARE':
+      console.log('SQUARE_CLICKED event received by reducer with index ' + action.index);
+      return {
+        squares: state.squares.map(function (item, index) {
+          if (index !== action.index) {
+            return item;
+          }
+          console.log('Found matching item with index ' + index);
+          return _extends({}, item, {
+            color: '#ffffff'
+          });
+        })
+      };
     default:
       return state;
   }
@@ -21711,6 +21727,10 @@ var _Grid = __webpack_require__(74);
 
 var _Grid2 = _interopRequireDefault(_Grid);
 
+var _Actions = __webpack_require__(81);
+
+var _Actions2 = _interopRequireDefault(_Actions);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21736,7 +21756,7 @@ var App = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'app' },
-        _react2.default.createElement(_Grid2.default, { squares: squares })
+        _react2.default.createElement(_Grid2.default, { squares: squares, handleSquare: this.props.clickOnSquare })
       );
     }
   }]);
@@ -21750,10 +21770,10 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-var mapDispatchToProps = function mapDispatchToProps(_dispatch) {
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    dispatch: function dispatch() {
-      return _dispatch();
+    clickOnSquare: function clickOnSquare(index) {
+      return dispatch((0, _Actions2.default)(index));
     }
   };
 };
@@ -21803,14 +21823,18 @@ var Grid = function (_Component) {
   _createClass(Grid, [{
     key: 'render',
     value: function render() {
-      var squares = this.props.squares;
+      var _props = this.props,
+          squares = _props.squares,
+          handleSquare = _props.handleSquare;
 
       console.log('Grid is rendering');
       return _react2.default.createElement(
         'div',
         { className: 'grid' },
         squares.map(function (square) {
-          return _react2.default.createElement(_Square2.default, { key: square.id, square: square });
+          return _react2.default.createElement(_Square2.default, { key: square.id,
+            square: square,
+            handleSquare: handleSquare });
         })
       );
     }
@@ -21860,12 +21884,18 @@ var Grid = function (_Component) {
   _createClass(Grid, [{
     key: 'render',
     value: function render() {
-      console.log('Square #' + square.id + ' is rendering');
-      var square = this.props.square;
+      var _props = this.props,
+          square = _props.square,
+          handleSquare = _props.handleSquare;
 
+      console.log('Square #' + square.id + ' is rendering');
       return _react2.default.createElement(
         'section',
-        { className: 'square', style: { backgroundColor: square.color } },
+        { className: 'square',
+          style: { backgroundColor: square.color },
+          onClick: function onClick() {
+            return handleSquare(square.id);
+          } },
         _react2.default.createElement(
           'div',
           { className: 'square-data' },
@@ -21920,7 +21950,7 @@ exports = module.exports = __webpack_require__(29)(false);
 
 
 // module
-exports.push([module.i, ".square {\r\n    height: 100px;\r\n    width: 100px;\r\n    border: black 1px solid;\r\n    margin: 2px;\r\n    display:-webkit-box;\r\n    display:-ms-flexbox;\r\n    display:flex;\r\n    -webkit-box-pack:center;\r\n        -ms-flex-pack:center;\r\n            justify-content:center;\r\n    -webkit-box-align:center;\r\n        -ms-flex-align:center;\r\n            align-items:center;\r\n}\r\n\r\n.square-data {\r\n    text-align: center;\r\n    font-size: 50px;\r\n    -webkit-text-stroke: 1px white;\r\n}", ""]);
+exports.push([module.i, ".square {\r\n    height: 100px;\r\n    width: 100px;\r\n    margin: 2px;\r\n    display:-webkit-box;\r\n    display:-ms-flexbox;\r\n    display:flex;\r\n    -webkit-box-pack:center;\r\n        -ms-flex-pack:center;\r\n            justify-content:center;\r\n    -webkit-box-align:center;\r\n        -ms-flex-align:center;\r\n            align-items:center;\r\n    border: 10px solid #EECC50;\r\n    border-radius: .8em;\r\n}\r\n\r\n.square-data {\r\n    text-align: center;\r\n    font-size: 30px;\r\n    color: #DC8526;\r\n}", ""]);
 
 // exports
 
@@ -22060,10 +22090,29 @@ exports = module.exports = __webpack_require__(29)(false);
 
 
 // module
-exports.push([module.i, ".grid {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n        flex-wrap: wrap;\r\n    -webkit-box-pack:center;\r\n        -ms-flex-pack:center;\r\n            justify-content:center;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n}", ""]);
+exports.push([module.i, ".grid {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n        flex-wrap: wrap;\r\n    -webkit-box-pack:center;\r\n        -ms-flex-pack:center;\r\n            justify-content:center;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    width: 500px;\r\n    margin: 0 auto\r\n}", ""]);
 
 // exports
 
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = clickOnSquare;
+function clickOnSquare(index) {
+  console.log('CLICK_SQUARE event fired by action creator with index ' + index);
+  return {
+    index: index,
+    type: 'CLICK_SQUARE'
+  };
+}
 
 /***/ })
 /******/ ]);

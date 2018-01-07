@@ -3,4 +3,13 @@
     width: 100px;
     border: black 1px solid;
     margin: 2px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.square-data {
+    text-align: center;
+    font-size: 50px;
+    -webkit-text-stroke: 1px white;
 }

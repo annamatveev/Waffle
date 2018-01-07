@@ -6,7 +6,7 @@ class Grid extends Component {
     const { square } = this.props;
     return (
       <section className="square" style={{ backgroundColor: square.color }} >
-        <div className="color">Square</div>
+        <div className="square-data">{square.id}</div>
       </section>
     );
   }

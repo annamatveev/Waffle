@@ -21805,6 +21805,7 @@ var Grid = function (_Component) {
     value: function render() {
       var squares = this.props.squares;
 
+      console.log('Grid is rendering');
       return _react2.default.createElement(
         'div',
         { className: 'grid' },
@@ -21859,20 +21860,16 @@ var Grid = function (_Component) {
   _createClass(Grid, [{
     key: 'render',
     value: function render() {
+      console.log('Square #' + square.id + ' is rendering');
       var square = this.props.square;
 
       return _react2.default.createElement(
         'section',
-        { className: 'square' },
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Im a square'
-        ),
+        { className: 'square', style: { backgroundColor: square.color } },
         _react2.default.createElement(
           'div',
-          { className: 'color', style: { backgroundColor: square.color } },
-          'HAHAHA'
+          { className: 'square-data' },
+          square.id
         )
       );
     }
@@ -21923,7 +21920,7 @@ exports = module.exports = __webpack_require__(29)(false);
 
 
 // module
-exports.push([module.i, ".square {\r\n    height: 100px;\r\n    width: 100px;\r\n}", ""]);
+exports.push([module.i, ".square {\r\n    height: 100px;\r\n    width: 100px;\r\n    border: black 1px solid;\r\n    margin: 2px;\r\n    display:-webkit-box;\r\n    display:-ms-flexbox;\r\n    display:flex;\r\n    -webkit-box-pack:center;\r\n        -ms-flex-pack:center;\r\n            justify-content:center;\r\n    -webkit-box-align:center;\r\n        -ms-flex-align:center;\r\n            align-items:center;\r\n}\r\n\r\n.square-data {\r\n    text-align: center;\r\n    font-size: 50px;\r\n    -webkit-text-stroke: 1px white;\r\n}", ""]);
 
 // exports
 
@@ -22063,7 +22060,7 @@ exports = module.exports = __webpack_require__(29)(false);
 
 
 // module
-exports.push([module.i, ".grid {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n        flex-wrap: wrap;\r\n}", ""]);
+exports.push([module.i, ".grid {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n        flex-wrap: wrap;\r\n    -webkit-box-pack:center;\r\n        -ms-flex-pack:center;\r\n            justify-content:center;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n}", ""]);
 
 // exports
 

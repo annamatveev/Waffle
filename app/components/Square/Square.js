@@ -14,7 +14,7 @@ class Square extends Component {
       <section
         className="square"
         style={{ backgroundColor: square.toJS().color }}
-        onClick={() => handleSquare({index: square.toJS().id })}
+        onClick={() => handleSquare({ index: square.toJS().id })}
       >
         <div className="square-data">{square.toJS().id}</div>
       </section>

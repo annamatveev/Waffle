@@ -1,6 +1,7 @@
 # Waffle
 Immutable playground
 
+Things learned:
 - Reselect works like a cache, it memorizes query on the state. it's useful when there are difficult nesting and querying.
 - Each component you connect separately to the store will not affect the others.
 - Connect is a pure components, thus if the state is a nested structure, every change will trigger rendering on entire component (it does shallow comparison).

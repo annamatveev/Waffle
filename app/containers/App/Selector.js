@@ -1,21 +1,21 @@
 import { createSelector } from 'reselect';
 
-const selectAnnaSquares = (state) => state.get('annaSquares');
-const selectDanielSquares = (state) => state.get('danielSquares');
+const selectGrid = (state) => state.get('grid');
+const selectSquares  = (state) => state.get('squares');
 
-const makeSelectAnnasWaffle = () => createSelector(
-  selectAnnaSquares,
-  (squaresState) => squaresState.get('squares'),
+const makeSelectGridSquares = () => createSelector(
+    selectGrid,
+    (gridState) => gridState.get('squares'),
 );
 
-const makeSelectDanielsWaffle = () => createSelector(
-  selectDanielSquares,
-  (squaresState) => squaresState.get('squares'),
+const makeSelectSquare = (id) => createSelector(
+    selectSquares,
+    (squaresState) => squaresState.get(id),
 );
 
 export {
-  selectAnnaSquares,
-  selectDanielSquares,
-  makeSelectAnnasWaffle,
-  makeSelectDanielsWaffle,
+    selectSquares,
+    selectGrid,
+    makeSelectGridSquares,
+    makeSelectSquare,
 };

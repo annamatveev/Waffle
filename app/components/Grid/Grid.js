@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import Square from '../Square/Square';
+import ConnectedSquare from '../../containers/ConnectedSquare';
 import './Grid.css';
+
 
 class Grid extends Component {
   render() {
-    const { owner, squares, handleSquare } = this.props;
-    console.log('Grid is rendering: ' + owner);
+    const { squares, handleSquare } = this.props;
+    console.log('Grid is rendering: ', this.props.squares.toJS());
     return (
       <div className="grid">
-        { squares.map(square => <Square key={square.toJS().id}
-                                        square={square}
-                                        handleSquare={handleSquare} />) }
+        { squares.map(squareId => <ConnectedSquare key={squareId} squareId={squareId} handleSquare={handleSquare} />) }
       </div>
     );
   }

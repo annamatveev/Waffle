@@ -1,33 +1,31 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import Grid from '../../components/Grid/Grid';
-import {clickOnAnnaSquare, clickOnDanielSquare} from './Actions';
-import {makeSelectDanielsWaffle, makeSelectAnnasWaffle} from './Selector'
+import { makeSelectGridSquares } from './Selector'
+import { clickOnSquare, addSquare } from './Actions';
 
 class App extends Component {
   render() {
-    const {annaSquares, danielSquares} = this.props;
+      console.log('App is rendered');
+    const { squares } = this.props;
     return (
       <div className="app">
-        <div>Anna's Waffle</div>
-        <Grid owner={'Anna'} squares={annaSquares} handleSquare={this.props.clickOnAnnaSquare}/>
-        <div>Daniel's Waffle</div>
-        <Grid owner={'Daniel'} squares={danielSquares} handleSquare={this.props.clickOnDanielSquare}/>
+          <button onClick={this.props.addSquare}>Test</button>
+          <Grid squares={squares} handleSquare={this.props.clickOnSquare}/>
       </div>
     );
   }
 }
 
 const mapStateToProps = createStructuredSelector({
-  annaSquares: makeSelectAnnasWaffle(),
-  danielSquares: makeSelectDanielsWaffle(),
-});
+    squares: makeSelectGridSquares()
+})
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    clickOnAnnaSquare: (index) => dispatch(clickOnAnnaSquare(index)),
-    clickOnDanielSquare: (index) => dispatch(clickOnDanielSquare(index)),
+    clickOnSquare: (index) => dispatch(clickOnSquare(index)),
+    addSquare: () => dispatch(addSquare()),
   };
 };
 

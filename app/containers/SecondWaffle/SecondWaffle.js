@@ -15,7 +15,7 @@ class SecondWaffle extends Component {
         { secondWaffle.map(square =>
           (
             <Square
-              key={square.id}
+              key={square.toJS().id}
               square={square}
               handleSquare={clickOnSecondWaffleSquare}
             />
@@ -27,7 +27,7 @@ class SecondWaffle extends Component {
 }
 
 SecondWaffle.propTypes = {
-  secondWaffle: PropTypes.array.isRequired,
+  secondWaffle: PropTypes.object.isRequired,
   clickOnSecondWaffleSquare: PropTypes.func.isRequired,
 };
 

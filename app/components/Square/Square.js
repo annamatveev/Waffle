@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import './Square.css';
 
 class Square extends Component {
-  // shouldComponentUpdate(nextProps) {
-  //   return !Object.is(this.props.square, nextProps.square);
-  // }
+  shouldComponentUpdate(nextProps) {
+    return !Object.is(this.props.square, nextProps.square);
+  }
   render() {
     const { square, handleSquare } = this.props;
-    console.log('Square #' + square.id + ' is rendering');
+    console.log('Square #' + square.toJS().id + ' is rendering');
     return (
       <section
         className="square"
-        style={{ backgroundColor: square.color }}
-        onClick={() => handleSquare({ index: square.id })}
+        style={{ backgroundColor: square.toJS().color }}
+        onClick={() => handleSquare({index: square.toJS().id })}
       >
-        <div className="square-data">{square.id}</div>
+        <div className="square-data">{square.toJS().id}</div>
       </section>
     );
   }
 }
+
+Square.propTypes = {
+  square: PropTypes.object.isRequired,
+  handleSquare: PropTypes.func.isRequired,
+};
 
 export default Square;

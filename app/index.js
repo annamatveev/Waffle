@@ -77,7 +77,7 @@ const secondWaffle = [
 ];
 
 const store =
-  configureStore({ firstWaffle: firstWaffle, secondWaffle: secondWaffle });
+  configureStore({ firstWaffle: fromJS(firstWaffle), secondWaffle: fromJS(secondWaffle) });
 
 ReactDOM.render(
   <Provider store={store}>

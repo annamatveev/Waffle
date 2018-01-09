@@ -1,0 +1,1 @@
+export const UPDATE_ITEM_COLOR = 'Waffle/FeedItem/UPDATE_ITEM_COLOR';

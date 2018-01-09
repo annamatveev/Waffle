@@ -1,0 +1,48 @@
+.add-item-button {
+    margin: 15px auto;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+button.btn,.btn {
+    cursor: pointer;
+    background-color: white;
+    margin-right: 1em; /* remove this while use*/
+    margin-bottom: 1em; /* remove this while use*/
+    display: inline-block;
+    outline: none;
+    *zoom: 1;
+    text-align: center;
+    text-decoration: none;
+    font-family: inherit;
+    font-weight: 300;
+    letter-spacing: 1px;
+    vertical-align: middle;
+    border: 1px solid;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.01);
+}
+/* Radius */
+.btn-radius {
+    border-radius: 3px;
+}
+
+.btn-large {
+    font-size: 1.0625em;
+    padding: 0.5625em 1.5em;
+}
+
+/* Colors */
+.btn-green {
+    color: #3CB371;
+    border-color: #3CB371;
+}
+.btn-green:hover {
+    background: #3CB371;
+    color: #fff;
+    border-color: #3CB371;
+}
+
+
+

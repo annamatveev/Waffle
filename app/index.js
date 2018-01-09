@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 
 import configure from './store/configure';
-import App from './components/App/App';
+import App from './containers/App/App';
 
 const store = configure();
 

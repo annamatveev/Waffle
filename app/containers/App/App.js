@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Feed from '../../containers/Feed/Feed';
+import Feed from '../Feed/Feed';
 import './App.css';
 
 const App = ({ feed }) => (

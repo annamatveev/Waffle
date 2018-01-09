@@ -1,15 +1,7 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import AppWrapperView from '../../components/AppWrapperView/AppWrapperView';
 
-import Feed from '../Feed/Feed';
-import './App.css';
-
-const App = ({ feed }) => (
-      <div className="app">
-        <Feed feed={feed} />
-      </div>
-);
+import { AddItemActionCreator } from '../Feed/FeedActions';
 
 const mapStateToProps = (state) => {
   return {
@@ -17,8 +9,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-App.propTypes = {
-  feed: PropTypes.object.isRequired,
+const mapDispatchToProps = (dispatch) => {
+  return {
+    clickOnAddItemButton: () => dispatch(AddItemActionCreator()),
+  };
 };
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(AppWrapperView);

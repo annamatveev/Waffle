@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import FeedView from '../../components/FeedView/FeedView';
-import { AddItemActionCreator } from './FeedActions';
 
 const mapStateToProps = (state) => {
   return {
@@ -8,11 +7,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    clickOnAddItemButton: () => dispatch(AddItemActionCreator()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FeedView);
+export default connect(mapStateToProps, null)(FeedView);
 

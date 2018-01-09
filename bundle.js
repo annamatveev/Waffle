@@ -21899,7 +21899,7 @@ function ItemsReducer() {
     case _FeedActionsTypes.ADD_ITEM:
       return _extends({}, state, _defineProperty({}, action.guid, {
         guid: action.guid,
-        color: '#e3fbf',
+        color: '#e3fbfc',
         title: 'How to Dramatically Improve your Public Speaking Skills',
         body: 'The ability to communicate a message, sell an idea, or paint a vision is a critical skill for anyone ' + 'who wants to have an impact on the world. And even in the age of emojis, animated GIFs, and Snapchat filters, ' + 'public speaking is still the most effective way to move, persuade, and inspire.'
       }));

@@ -40,7 +40,7 @@ export default function ItemsReducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_ITEM_COLOR:
       return {
-        ...state, [action.guid]: { guid: action.guid, color: '#ffffff' },
+        ...state, [action.feedItemGuid]: { guid: action.feedItemGuid, color: '#ffffff' },
       };
     case ADD_ITEM:
       return {

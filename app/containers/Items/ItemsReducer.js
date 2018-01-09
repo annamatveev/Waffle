@@ -5,31 +5,37 @@ import { ADD_ITEM } from '../Feed/FeedActionsTypes';
 const items = {
   H1xKl15G41: {
     guid: 'H1xKl15G41',
-    color: '#EAA732',
-    title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
-    body: 'quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam ' +
-    'nostrum rerum est autem sunt rem eveniet architecto',
+    color: '#e3fbfc',
+    title: 'Lessons from 7 self-taught coders who now work full time as software developers',
+    body: 'Studying web development is a path with many ups and downs. You might have one day where you figure out a ' +
+    'tough problem and feel absolutely amazing. But then the very next day, you get stuck on a seemingly easy problem ' +
+    'for hours. You end up feeling completely defeated.',
   },
   H1xKl15G42: {
     guid: 'H1xKl15G42',
-    color: '#EAA732',
-    title: 'qui est esse',
-    body: 'est rerum tempore vitae sequi sint nihil reprehenderit dolor beatae ea dolores neque fugiat blanditiis ' +
-    'voluptate porro vel nihil molestiae ut reiciendis qui aperiam non debitis possimus qui neque nisi nulla',
+    color: '#e3fbfc',
+    title: '6 Years Later and I’m Still Just a Wantrepreneur',
+    body: 'I am a wantrepreneur. I’ve been breathing and talking entrepreneurship for the last 6 years, but I still ' +
+    'don’t have my own startup. I came across the term “startup” for the very first time and have since witnessed the ' +
+    'startup ecosystem in Melbourne boom. I’ve also watched many ships sail off to return with people skipping all the ' +
+    'way to the bank. Yet, 6 years later, I am still working for someone else.',
   },
   H1xKl15G43: {
     guid: 'H1xKl15G43',
-    color: '#EAA732',
-    title: 'ea molestias quasi exercitationem repellat qui ipsa sit autt',
-    body: 'et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus vel accusantium ' +
-    'quis pariatur molestiae porro eius odio et labore et velit aut',
+    color: '#e3fbfc',
+    title: '2017 In Review: The gods Must Be Crazy',
+    body: 'The culture of writing yearly reviews started last year for me (2016 in review).And I’m grateful that I get ' +
+    'to write another review this year. First, I’ll like to think that I didn’t do much this year, but every single ' +
+    'person that I have shared this train of thought with thinks I’m crazy.',
   },
   H1xKl15G44: {
     guid: 'H1xKl15G44',
-    color: '#EAA732',
-    title: 'eum et est occaecati',
-    body: 'ullam et saepe reiciendis voluptatem adipisci sit amet autem assumenda provident rerum culpa quis hic ' +
-    'commodi nesciunt rem tenetur doloremque ipsam iure quis sunt voluptatem rerum illo velit',
+    color: '#e3fbfc',
+    title: '21 Awesome Places to Learn Critical Skills That Will Change Your Life',
+    body: 'But lifelong learning has incredible benefits, both personal and professional, say researchers. ' +
+    'It makes communities more productive and innovative, and gives employees the ability to cope with constantly ' +
+    'changing workplaces. Lifelong learning helps us stay sharp as we age, and is also important for a successful ' +
+    'economy.t',
   },
 };
 
@@ -40,11 +46,19 @@ export default function ItemsReducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_ITEM_COLOR:
       const modifiedState = Object.assign({}, state);
-      modifiedState[action.feedItemGuid].color = '#ffffff';
+      modifiedState[action.feedItemGuid].color = '#555fff';
       return modifiedState;
     case ADD_ITEM:
       return {
-        ...state, [action.guid]: { guid: action.guid, color: '#EAA732' },
+        ...state,
+        [action.guid]: {
+          guid: action.guid,
+          color: '#e3fbf',
+          title: 'How to Dramatically Improve your Public Speaking Skills',
+          body: 'The ability to communicate a message, sell an idea, or paint a vision is a critical skill for anyone ' +
+          'who wants to have an impact on the world. And even in the age of emojis, animated GIFs, and Snapchat filters, ' +
+          'public speaking is still the most effective way to move, persuade, and inspire.',
+        },
       };
     default:
       return state;

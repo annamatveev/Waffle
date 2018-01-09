@@ -19,6 +19,8 @@ FeedItemView.propTypes = {
   feedItemGuid: PropTypes.string.isRequired,
   feedItemColor: PropTypes.string.isRequired,
   clickOnFeedItem: PropTypes.func.isRequired,
+  feedItemTitle: PropTypes.string.isRequired,
+  feedItemBody: PropTypes.string.isRequired,
 };
 
 export default FeedItemView;

@@ -2,8 +2,6 @@
     margin: 15px auto;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Raleway);
-
 button.btn,.btn {
     cursor: pointer;
     background-color: white;

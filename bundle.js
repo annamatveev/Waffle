@@ -21894,7 +21894,7 @@ function ItemsReducer() {
   switch (action.type) {
     case _FeedItemActionsTypes.UPDATE_ITEM_COLOR:
       var modifiedState = Object.assign({}, state);
-      modifiedState[action.feedItemGuid].color = '#555fff';
+      modifiedState[action.feedItemGuid].color = '#ffffff';
       return modifiedState;
     case _FeedActionsTypes.ADD_ITEM:
       return _extends({}, state, _defineProperty({}, action.guid, {
@@ -22467,7 +22467,6 @@ exports.UpdateColorActionCreator = UpdateColorActionCreator;
 var _FeedItemActionsTypes = __webpack_require__(33);
 
 function UpdateColorActionCreator(feedItemGuid) {
-  console.log('EVENT: update color');
   return {
     feedItemGuid: feedItemGuid,
     type: _FeedItemActionsTypes.UPDATE_ITEM_COLOR

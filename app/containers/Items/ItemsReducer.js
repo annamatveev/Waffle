@@ -46,7 +46,7 @@ export default function ItemsReducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_ITEM_COLOR:
       const modifiedState = Object.assign({}, state);
-      modifiedState[action.feedItemGuid].color = '#555fff';
+      modifiedState[action.feedItemGuid].color = '#ffffff';
       return modifiedState;
     case ADD_ITEM:
       return {

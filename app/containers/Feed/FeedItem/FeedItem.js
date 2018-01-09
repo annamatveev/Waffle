@@ -4,12 +4,12 @@ import { UpdateColorActionCreator } from './FeedItemActions';
 
 const mapStateToProps = (state, ownProps) => {
   const { feedItemGuid } = ownProps;
-  const feedItem = state.items[feedItemGuid];
+  const feedItem = state.items.get(feedItemGuid);
   return {
-    feedItemGuid: feedItem.guid,
-    feedItemColor: feedItem.color,
-    feedItemTitle: feedItem.title,
-    feedItemBody: feedItem.body,
+    feedItemGuid: feedItem.get('guid'),
+    feedItemColor: feedItem.get('color'),
+    feedItemTitle: feedItem.get('title'),
+    feedItemBody: feedItem.get('body'),
   };
 };
 

@@ -3,7 +3,7 @@ import FeedView from '../../components/FeedView/FeedView';
 
 const mapStateToProps = (state) => {
   return {
-    feedItems: state.feed.items,
+    feedItems: state.feed.get('items'),
   };
 };
 

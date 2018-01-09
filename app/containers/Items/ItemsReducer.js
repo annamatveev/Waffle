@@ -1,4 +1,4 @@
-// import { fromJS } from 'immutable';
+import { fromJS } from 'immutable';
 import { UPDATE_ITEM_COLOR } from '../Feed/FeedItem/FeedItemActionsTypes';
 import { ADD_ITEM } from '../Feed/FeedActionsTypes';
 
@@ -39,27 +39,24 @@ const items = {
   },
 };
 
-// const initialState = fromJS({ items });
-const initialState = items;
+const initialState = fromJS(items);
 
 export default function ItemsReducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_ITEM_COLOR:
-      const modifiedState = Object.assign({}, state);
-      modifiedState[action.feedItemGuid].color = '#ffffff';
-      return modifiedState;
+      return state.setIn([action.feedItemGuid, 'color'], '#ffffff');
     case ADD_ITEM:
-      return {
-        ...state,
-        [action.guid]: {
+      return state.setIn(
+        [action.guid],
+        fromJS({
           guid: action.guid,
           color: '#e3fbfc',
           title: 'How to Dramatically Improve your Public Speaking Skills',
           body: 'The ability to communicate a message, sell an idea, or paint a vision is a critical skill for anyone ' +
           'who wants to have an impact on the world. And even in the age of emojis, animated GIFs, and Snapchat filters, ' +
           'public speaking is still the most effective way to move, persuade, and inspire.',
-        },
-      };
+        }),
+      );
     default:
       return state;
   }

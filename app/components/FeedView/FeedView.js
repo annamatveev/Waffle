@@ -15,7 +15,7 @@ const Feed = ({ feedItems }) => (
 );
 
 Feed.propTypes = {
-  feedItems: PropTypes.array.isRequired,
+  feedItems: PropTypes.object.isRequired,
 };
 
 export default Feed;

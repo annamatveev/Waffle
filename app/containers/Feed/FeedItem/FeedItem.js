@@ -1,19 +1,22 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import FeedItemView from '../../../components/FeedItemView/FeedItemView';
-import { UpdateColorActionCreator } from './FeedItemActions';
+import {UpdateColorActionCreator} from './FeedItemActions';
 
 const mapStateToProps = (state, ownProps) => {
-  const { feedItemId } = ownProps;
-  const feedItem = state.items[feedItemId];
+  const { feedItemGuid } = ownProps;
+  let feedItem = state.items.filter(function (item) {
+    return item.guid.localeCompare(feedItemGuid) === 0;
+  });
+  feedItem = feedItem ? feedItem[0] : { guid: '', color: '' };
   return {
-    feedItemId: feedItem.id,
+    feedItemGuid: feedItem.guid,
     feedItemColor: feedItem.color,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    clickOnFeedItem: ({ feedItemId }) => dispatch(UpdateColorActionCreator(feedItemId)),
+    clickOnFeedItem: ({ feedItemGuid }) => dispatch(UpdateColorActionCreator(feedItemGuid)),
   };
 };
 

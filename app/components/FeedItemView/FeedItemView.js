@@ -2,18 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './FeedItemView.css';
 
-const FeedItemView = ({ feedItemId, feedItemColor, clickOnFeedItem }) => (
+const FeedItemView = ({ feedItemGuid, feedItemColor, clickOnFeedItem }) => (
       <section
         className="square"
         style={{ backgroundColor: feedItemColor }}
-        onClick={() => clickOnFeedItem({ feedItemId })}
+        onClick={() => clickOnFeedItem({ feedItemGuid })}
       >
-        <div className="square-data">{feedItemId}</div>
+        <div className="square-data">{feedItemGuid}</div>
       </section>
 );
 
 FeedItemView.propTypes = {
-  feedItemId: PropTypes.number.isRequired,
+  feedItemGuid: PropTypes.string.isRequired,
   feedItemColor: PropTypes.string.isRequired,
   clickOnFeedItem: PropTypes.func.isRequired,
 };

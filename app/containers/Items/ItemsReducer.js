@@ -3,14 +3,14 @@ import { UPDATE_ITEM_COLOR } from '../Feed/FeedItem/FeedItemActionsTypes';
 import { ADD_ITEM } from '../Feed/FeedActionsTypes';
 
 const items = [
-  { id: 0, color: '#EAA732' },
-  { id: 1, color: '#EAA732' },
-  { id: 2, color: '#EAA732' },
-  { id: 3, color: '#EAA732' },
-  { id: 4, color: '#EAA732' },
-  { id: 5, color: '#EAA732' },
-  { id: 6, color: '#EAA732' },
-  { id: 7, color: '#EAA732' },
+  { guid: 'H1xKl15G4z', color: '#EAA732' },
+  { guid: 'H1xKl15G4q', color: '#EAA732' },
+  { guid: 'H1xKl15G4a', color: '#EAA732' },
+  { guid: 'H1xKl15G4b', color: '#EAA732' },
+  { guid: 'H1xKl15G44', color: '#EAA732' },
+  { guid: 'H1xKl15G45', color: '#EAA732' },
+  { guid: 'H1xKl15G46', color: '#EAA732' },
+  { guid: 'H1xKl15G47', color: '#EAA732' },
 ];
 
 // const initialState = fromJS({ items });
@@ -20,13 +20,13 @@ export default function ItemsReducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_ITEM_COLOR:
       return state.map((item) => {
-        if (item.id === action.feedItemId) { // Override color
-          return { id: item.id, color: '#ffffff' };
+        if (item.guid === action.feedItemGuid) { // Override color
+          return { guid: item.guid, color: '#ffffff' };
         }
         return item;
       });
     case ADD_ITEM:
-      return [...state, { id: state.length, color: '#EAA732' }];
+      return [...state, { guid: action.guid, color: '#EAA732' }];
     default:
       return state;
   }

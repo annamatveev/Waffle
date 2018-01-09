@@ -1,9 +1,9 @@
 import { UPDATE_ITEM_COLOR } from './FeedItemActionsTypes';
 
-export function UpdateColorActionCreator(feedItemId) {
+export function UpdateColorActionCreator(feedItemGuid) {
   console.log('EVENT: update color');
   return {
-    feedItemId,
+    feedItemGuid,
     type: UPDATE_ITEM_COLOR,
   };
 }

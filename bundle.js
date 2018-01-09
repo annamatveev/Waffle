@@ -21737,7 +21737,7 @@ function ItemsReducer() {
   switch (action.type) {
     case _FeedItemActionsTypes.UPDATE_ITEM_COLOR:
       return state.map(function (item) {
-        if (item.id === action.feedItemId) {
+        if (item.id === action.feedItemGuid) {
           // Override color
           return { id: item.id, color: '#ffffff' };
         }
@@ -21874,8 +21874,8 @@ var Feed = function Feed(_ref) {
   return _react2.default.createElement(
     'div',
     { className: 'feed' },
-    feedItems.map(function (feedItemId) {
-      return _react2.default.createElement(_FeedItem2.default, { key: feedItemId, feedItemId: feedItemId });
+    feedItems.map(function (feedItemGuid) {
+      return _react2.default.createElement(_FeedItem2.default, { key: feedItemGuid, feedItemGuid: feedItemGuid });
     }),
     _react2.default.createElement(_AddItemButton2.default, { clickOnAddItemButton: clickOnAddItemButton })
   );
@@ -21911,11 +21911,11 @@ var _FeedItemActions = __webpack_require__(84);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var feedItemId = ownProps.feedItemId;
+  var feedItemGuid = ownProps.feedItemGuid;
 
-  var feedItem = state.items[feedItemId];
+  var feedItem = state.items[feedItemGuid];
   return {
-    feedItemId: feedItem.id,
+    feedItemGuid: feedItem.id,
     feedItemColor: feedItem.color
   };
 };
@@ -21923,8 +21923,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     clickOnFeedItem: function clickOnFeedItem(_ref) {
-      var feedItemId = _ref.feedItemId;
-      return dispatch((0, _FeedItemActions.UpdateColorActionCreator)(feedItemId));
+      var feedItemGuid = _ref.feedItemGuid;
+      return dispatch((0, _FeedItemActions.UpdateColorActionCreator)(feedItemGuid));
     }
   };
 };
@@ -21955,7 +21955,7 @@ __webpack_require__(81);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var FeedItemView = function FeedItemView(_ref) {
-  var feedItemId = _ref.feedItemId,
+  var feedItemGuid = _ref.feedItemGuid,
       feedItemColor = _ref.feedItemColor,
       clickOnFeedItem = _ref.clickOnFeedItem;
   return _react2.default.createElement(
@@ -21964,19 +21964,19 @@ var FeedItemView = function FeedItemView(_ref) {
       className: 'square',
       style: { backgroundColor: feedItemColor },
       onClick: function onClick() {
-        return clickOnFeedItem({ feedItemId: feedItemId });
+        return clickOnFeedItem({ feedItemGuid: feedItemGuid });
       }
     },
     _react2.default.createElement(
       'div',
       { className: 'square-data' },
-      feedItemId
+      feedItemGuid
     )
   );
 };
 
 FeedItemView.propTypes = {
-  feedItemId: _propTypes2.default.number.isRequired,
+  feedItemGuid: _propTypes2.default.number.isRequired,
   feedItemColor: _propTypes2.default.string.isRequired,
   clickOnFeedItem: _propTypes2.default.func.isRequired
 };
@@ -22137,10 +22137,10 @@ exports.UpdateColorActionCreator = UpdateColorActionCreator;
 
 var _FeedItemActionsTypes = __webpack_require__(32);
 
-function UpdateColorActionCreator(feedItemId) {
+function UpdateColorActionCreator(feedItemGuid) {
   console.log('EVENT: update color');
   return {
-    feedItemId: feedItemId,
+    feedItemGuid: feedItemGuid,
     type: _FeedItemActionsTypes.UPDATE_ITEM_COLOR
   };
 }

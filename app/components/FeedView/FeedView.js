@@ -8,7 +8,9 @@ import './FeedView.css';
 
 const Feed = ({ feedItems, clickOnAddItemButton }) => (
   <div className="feed">
-    { feedItems.map(feedItemId => (<FeedItem key={feedItemId} feedItemId={feedItemId} />))}
+    { feedItems.map(function(feedItemGuid) {
+      return <FeedItem key={feedItemGuid} feedItemGuid={feedItemGuid} />;
+    })}
     <AddItemButton clickOnAddItemButton={clickOnAddItemButton} />
   </div>
 );

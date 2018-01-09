@@ -8,6 +8,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     feedItemGuid: feedItem.guid,
     feedItemColor: feedItem.color,
+    feedItemTitle: feedItem.title,
+    feedItemBody: feedItem.body,
   };
 };
 

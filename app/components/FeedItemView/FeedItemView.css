@@ -1,4 +1,4 @@
-.square {
+.feed-item {
     height: 100px;
     width: 100px;
     margin: 2px;
@@ -9,7 +9,7 @@
     border-radius: .8em;
 }
 
-.square-data {
+.feed-item-data {
     text-align: center;
     font-size: 15px;
     color: #DC8526;
